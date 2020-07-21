@@ -75,6 +75,6 @@ public class Coin : MonoBehaviour {
 
     private void CreateCoinPoof()
     {
-        Object.Instantiate(coinPoofPrefab, transform.position, Quaternion.Euler(new Vector3(-transform.rotation.x, transform.rotation.y, transform.rotation.y)));
+        Object.Instantiate(coinPoofPrefab, transform.position, Quaternion.Euler(new Vector3(-90, transform.rotation.y, transform.rotation.y)));
     }
 }

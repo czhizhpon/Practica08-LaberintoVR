@@ -39,8 +39,8 @@ public class Door : MonoBehaviour {
     // Declare a float named 'timer' to track the Quaternion.Slerp() interpolation and initialize it to for example '0f'
     // Declare a float named 'rotationTime' to set the Quaternion.Slerp() interpolation speed and initialize it to for example '10f'
 
-    float timer = 5f;
-    float rotationTime = 10f;
+    float timer = 0f;
+    float rotationTime = 3f;
 
     public AudioClip doorUnlockedClip;
 
@@ -56,12 +56,10 @@ public class Door : MonoBehaviour {
         // Use 'rightDoor' to get the start rotation of the 'Right_Door' game object and assign it to 'rightDoorStartRotation'
         // Use 'rightDoorStartRotation' and Quaternion.Euler() to set the end rotation of the 'Right_Door' game object and assign it to 'rightDoorEndRotation'
         leftDoorStartRotation = leftDoor.transform.rotation;
-        leftDoorEndRotation = leftDoorStartRotation * Quaternion.Euler(0, 0, -100f);
+        leftDoorEndRotation = leftDoorStartRotation * Quaternion.Euler(0, 0, -105f);
         rightDoorStartRotation = rightDoor.transform.rotation;
-        rightDoorEndRotation = rightDoorStartRotation * Quaternion.Euler(0, 0, 100f);
-
-        Debug.Log(leftDoorStartRotation.eulerAngles + "||" + rightDoorStartRotation);
-        Debug.Log(leftDoorEndRotation + "||" + rightDoorEndRotation);
+        rightDoorEndRotation = rightDoorStartRotation * Quaternion.Euler(0, 0, 105f);
+        
     }
 
 
@@ -106,12 +104,12 @@ public class Door : MonoBehaviour {
             audioSource.Play();
 
             EventTrigger doorTrigger = GetComponent<EventTrigger>();
-            EventTrigger leftDoorTrigger = leftDoor.GetComponent<EventTrigger>();
-            EventTrigger rightDoorTrigger = rightDoor.GetComponent<EventTrigger>();
+            BoxCollider leftDoorCollider = leftDoor.GetComponent<BoxCollider>();
+            BoxCollider rightDoorCollider = rightDoor.GetComponent<BoxCollider>();
 
             doorTrigger.enabled = false;
-            leftDoorTrigger.enabled = false;
-            leftDoorTrigger.enabled = false;
+            leftDoorCollider.enabled = false;
+            leftDoorCollider.enabled = false;
         }
         else
         {
