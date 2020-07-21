@@ -72,8 +72,10 @@ public class Door : MonoBehaviour {
         if (opening)
         {
             timer += Time.deltaTime;
-            leftDoor.transform.rotation = Quaternion.Slerp(leftDoorStartRotation, leftDoorEndRotation, timer / rotationTime);
-            rightDoor.transform.rotation = Quaternion.Slerp(rightDoorStartRotation, rightDoorEndRotation, timer / rotationTime);
+            leftDoor.transform.rotation = Quaternion.Slerp(leftDoorStartRotation, 
+                leftDoorEndRotation, timer / rotationTime);
+            rightDoor.transform.rotation = Quaternion.Slerp(rightDoorStartRotation, 
+                rightDoorEndRotation, timer / rotationTime);
         }
 	}
 

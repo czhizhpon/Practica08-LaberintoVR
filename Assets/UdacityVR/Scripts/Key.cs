@@ -64,6 +64,8 @@ public class Key : MonoBehaviour {
 
     private void CreateKeyPoof()
     {
-        Object.Instantiate(keyPoofPrefab, transform.position, Quaternion.Euler(new Vector3(-transform.rotation.x, transform.rotation.y, transform.rotation.y)));
+        Object.Instantiate(keyPoofPrefab, transform.position, Quaternion.Euler(
+            new Vector3(-transform.rotation.x, transform.rotation.y, 
+            transform.rotation.y)));
     }
 }

@@ -25,27 +25,22 @@ public class Coin : MonoBehaviour {
         // TIP: You could use a method from the Transform class
         
         if (isClicked) {
-            
-            
             pY = yInitial + Mathf.Sin((Time.time - currentTime) * 6.0f) * 2.5f;
-            
-            transform.position = new Vector3(transform.position.x, pY, transform.position.z);
-
+            transform.position = new Vector3(transform.position.x, pY, 
+                transform.position.z);
             if (pY < yInitial)
             {
-
                 CreateCoinPoof();
                 Object.Destroy(this.gameObject);
                 isClicked = false;
             }
-
         }
         if (isMoving)
         {
             pY = yInitial + (Mathf.Sin(Time.time * 2.1f) * 0.07f);
-            transform.position = new Vector3(transform.position.x, pY, transform.position.z);
+            transform.position = new Vector3(transform.position.x, pY, 
+                transform.position.z);
         }
-
         if (!isMoving)
         {
             y = 7 + (Mathf.Sin(Time.deltaTime));
@@ -75,6 +70,7 @@ public class Coin : MonoBehaviour {
 
     private void CreateCoinPoof()
     {
-        Object.Instantiate(coinPoofPrefab, transform.position, Quaternion.Euler(new Vector3(-90, transform.rotation.y, transform.rotation.y)));
+        Object.Instantiate(coinPoofPrefab, transform.position, Quaternion.Euler(
+            new Vector3(-90, transform.rotation.y, transform.rotation.y)));
     }
 }
